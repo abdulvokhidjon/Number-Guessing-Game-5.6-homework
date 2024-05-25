@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game | 5.6-homework </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-size: cover;
+            background-position: center;
+            background-image: url(img/bg-image2.jpg);
+        }
+        .game-button {
+            font-size: 1.25rem; /* Increase the font size */
+            padding: 0.5rem 1rem;
+        }
+        .powered-by {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem; /* Adjust font size as needed */
+            font-weight: bold;
+            color: #4a5568; /* Adjust color as needed */
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen font-sans bg-green-100">
+
+    <div id="again" class="absolute top-0 left-0 m-4 cursor-pointer text-blue-500 game-button" onclick="startGame()">
+        Again
+    </div>
+
+    <div class="text-center mt-10">
+        <div id="number-container" class="text-4xl mb-8 font-bold">
+            <span class="bg-darkblue p-2 rounded-full shadow-md text-orange-500">?</span>
+        </div>
+        <h1 class="text-2xl lg:text-4xl text-orange-500">Guess any number between 1 and 30</h1>
+    </div>
+
+    <div class="absolute bottom-0 left-0 m-4 flex items-center">
+        <input
+            id="guess-input"
+            type="number"
+            class="border rounded p-2 mr-2"
+            placeholder="Your guess number"
+            min="1"
+            max="30"
+        />
+        <div class="bg-blue-500 text-white rounded p-2 px-4 game-button cursor-pointer" onclick="checkGuess()">
+            Check
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 right-0 m-4 flex flex-col items-end">
+        <div id="start-game" class="text-lg font-bold text-green-500 cursor-pointer game-button" onclick="startGame()">
+            Start game :)
+        </div>
+        <div class="text-gray-700 mt-2">
+            <span class="text-lg text-purple-500">Attempts: <span id="attempts" class="text-3xl text-purple-700">0</span></span>
+        </div>
+        <div class="text-gray-700 mt-2">
+            <span class="text-lg text-yellow-500">Record: <span id="record" class="text-3xl text-yellow-700">0</span></span>
+        </div>
+    </div>
+
+    <div class="powered-by" onclick="window.location.href='https://github.com/abdulvokhidjon?tab=repositories';">Powered by Abdulvohid</div>
+
+    <audio id="win-sound" src="./audios/win-sound.mp3"></audio>
+    <audio id="lose-sound" src="./audios/lose-sound.mp3"></audio>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
